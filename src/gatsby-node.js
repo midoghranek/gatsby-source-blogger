@@ -26,7 +26,8 @@ exports.sourceNodes = async ({ actions, createNodeId }, { apiKey, blogId }) => {
   try {
     let params = {
       blogId: blogId,
-      maxResults: 500
+      maxResults: 500,
+      fetchImages: true,
     };
 
     do {
@@ -65,6 +66,7 @@ title: >-
   ${post.title}
 date: ${post.published}
 slug: ${segments[1]}
+image: ${post.images ? post.images[0].url : "no-image"}
 ---
 
 ${md}`,
